@@ -1,0 +1,16 @@
+.boton{
+    background-color: #6278F7;
+    border-radius: calc(10rem / 16);
+    font-weight: 700;
+    font-family: sans-serif;
+    color: white;
+    padding: calc(24rem / 16) calc(32rem / 16);
+    border: none;
+    margin: 32px 0;
+    cursor: pointer;
+    outline-color: gray;
+}
+
+.boton:hover{
+    color: #95FFD4;
+}

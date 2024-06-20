@@ -1,0 +1,19 @@
+.lista-opciones label{
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: sans-serif;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.lista-opciones select{
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+    border: none;
+    padding: 30px 20px;
+    outline-color: #6278F7;
+    font-size: 16px;
+    box-sizing: border-box;
+}
