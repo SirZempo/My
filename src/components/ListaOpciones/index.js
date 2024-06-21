@@ -1,7 +1,7 @@
 import "./listaOpciones.css" 
 
 const ListaOpciones = (props) =>{
-    const equipos = [
+    /*const equipos = [
         "Programación",
         "Front-End",
         "Data Science",
@@ -9,7 +9,7 @@ const ListaOpciones = (props) =>{
         "Devops",
         "Movil",
         "Innocvacion y Gestion"
-    ];
+    ];*/
 
     const manejarCambio = e =>{
         console.log("Evento: ", e.target.value);
@@ -30,7 +30,7 @@ const ListaOpciones = (props) =>{
             <option value="">Innocvacion y Gestion</option> */}
             <option value="" disabled defaultValue="" hidden>Seleccionar Equipo</option>
             {
-                equipos.map((equipo, index)=> <option key={index} value={equipo}>{equipo}</option>)
+                props.equipos.map((equipo, index)=> <option key={index} value={equipo}>{equipo}</option>)
             }
         </select>
     </div>;
