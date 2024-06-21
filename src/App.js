@@ -7,6 +7,7 @@ import MiOrg from "./components/MiOrg";
 
 function App() {
   const [mostrarFormulario, actualizarMostrar] = useState(false);
+  const [colaboradores, actualizarColaboradores] = useState([]);
 
   //Ternario --> condicion ? seMuestra : noSeMuestra
   //condicion && seMuerstra
@@ -15,7 +16,13 @@ function App() {
     actualizarMostrar(!mostrarFormulario);
   }
 
-  
+  //Registrar colaborador
+
+  const registrarColaborador = (colaborador) =>{
+    console.log("Nuevo colaborador", colaborador);
+    //Spread operator
+    actualizarColaboradores([...colaboradores, colaborador]);
+  }
 
   //Lista de equipos
   const equipos = [
@@ -62,12 +69,12 @@ function App() {
       {/* <Header></Header> */}
       <Header/>
       {/* Las siguientes lineas de codigo son distintas formas de declarar la condicion */}
-      { mostrarFormulario === true ? <Formulario equipos={equipos.map(equipo => equipo.titulo)}></Formulario> : <></>}
+      { mostrarFormulario === true ? <Formulario equipos={equipos.map(equipo => equipo.titulo)} registrarColaborador={registrarColaborador}></Formulario> : <></>}
       {/* mostrarFormulario && <Formulario></Formulario>*/}
       <MiOrg cambiarMostrar={cambiarMostrar}></MiOrg>
       {
         equipos.map((equipo)=>{
-          return <Equipo datos={equipo} key={equipo.titulo}></Equipo>
+          return <Equipo datos={equipo} key={equipo.titulo} colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}></Equipo>
         })
       }
     </div>

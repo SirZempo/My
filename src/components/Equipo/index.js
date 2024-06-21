@@ -5,19 +5,22 @@ const Equipo = (props) => {
     //Destructuracion
     const {colorPrimario, colorSecundario, titulo} = props.datos;
     const estiloTitulo = { borderBottom: `4px solid ${colorPrimario}`};
+    const {colaboradores} = props;
 
     //Para mandar propiedades css a nuestros componentes usamos la propiedad style={{"propiedadCSS"}}
-    return <section className="equipo" style={{backgroundColor: colorSecundario}}>
+    return <>
+    {   
+        colaboradores.length > 0 &&
+        <section className="equipo" style={{backgroundColor: colorSecundario}}>
         <h3 style={estiloTitulo}>{titulo}</h3>
         <div className="colaboradores">
-            <Colaborador></Colaborador>
-            <Colaborador></Colaborador>
-            <Colaborador></Colaborador>
-            <Colaborador></Colaborador>
-            <Colaborador></Colaborador>
-            <Colaborador></Colaborador>
+            {
+                colaboradores.map((colaborador, index)=>{ return <Colaborador datos={colaborador} key={index}></Colaborador> })
+            }
         </div>
-    </section>
+        </section>
+    }
+    </>
 }
 
 export default Equipo
