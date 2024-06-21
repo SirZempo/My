@@ -6,7 +6,7 @@ import Header from './components/header/header.js';
 import MiOrg from "./components/MiOrg";
 
 function App() {
-  const [mostrarFormulario, actualizarMostrar] = useState(false);
+  const [mostrarFormulario, actualizarMostrar] = useState(true);
   const [colaboradores, actualizarColaboradores] = useState([]);
 
   //Ternario --> condicion ? seMuestra : noSeMuestra
