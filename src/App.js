@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import './App.css';
 import Equipo from './components/Equipo';
+import Footer from './components/Footer';
 import Formulario from './components/formulario/formulario';
 import Header from './components/header/header.js';
 import MiOrg from "./components/MiOrg";
 
 function App() {
-  const [mostrarFormulario, actualizarMostrar] = useState(true);
+  const [mostrarFormulario, actualizarMostrar] = useState(false);
   const [colaboradores, actualizarColaboradores] = useState([]);
 
   //Ternario --> condicion ? seMuestra : noSeMuestra
@@ -77,6 +78,7 @@ function App() {
           return <Equipo datos={equipo} key={equipo.titulo} colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}></Equipo>
         })
       }
+      <Footer></Footer>
     </div>
   );
 }
