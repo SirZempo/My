@@ -4,9 +4,9 @@ import hexToRgba from "hex-to-rgba";
 
 const Equipo = (props) => {
     //Destructuracion
-    const {colorPrimario, colorSecundario, titulo} = props.datos;
+    const {colorPrimario, colorSecundario, titulo, id} = props.datos;
     const estiloTitulo = { borderBottom: `4px solid ${colorPrimario}`};
-    const {colaboradores, eliminarColaborador, actualizarColor} = props;
+    const {colaboradores, eliminarColaborador, actualizarColor, like} = props;
 
     //Para mandar propiedades css a nuestros componentes usamos la propiedad style={{"propiedadCSS"}}
     return <>
@@ -17,12 +17,12 @@ const Equipo = (props) => {
                 type="color"
                 className="input-color"
                 value={colorPrimario}
-                onChange={(evento)=>{actualizarColor(evento.target.value, titulo)}}
+                onChange={(evento)=>{actualizarColor(evento.target.value, id)}}
             />
             <h3 style={estiloTitulo}>{titulo}</h3>
             <div className="colaboradores">
                 {
-                    colaboradores.map((colaborador, index)=>{ return <Colaborador datos={colaborador} key={index} colorPrimario={colorPrimario} eliminarColaborador={eliminarColaborador}></Colaborador> })
+                    colaboradores.map((colaborador, index)=>{ return <Colaborador datos={colaborador} key={index} colorPrimario={colorPrimario} eliminarColaborador={eliminarColaborador} like={like}></Colaborador> })
                 }
             </div>
         </section>
